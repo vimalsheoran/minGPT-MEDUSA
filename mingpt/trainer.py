@@ -78,6 +78,7 @@ class Trainer:
         self.iter_num = 0
         self.iter_time = time.time()
         data_iter = iter(train_loader)
+
         while True:
 
             # fetch the next batch (x, y) and re-init iterator if needed
@@ -90,7 +91,7 @@ class Trainer:
             x, y = batch
 
             # forward the model
-            logits, self.loss = model(x, y)
+            _, _, self.loss = model(x, y)
 
             # backprop and update the parameters
             model.zero_grad(set_to_none=True)
